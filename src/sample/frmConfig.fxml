@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <MenuBar layoutY="2.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Ad">
+                    <items>
+                        <MenuItem fx:id="menuItemAd" mnemonicParsing="false" onAction="#setMenuItemAdOnAction" text="Ad" />
+                        <MenuItem fx:id="menuItemRaports" mnemonicParsing="false" text="Raports" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Clients">
+                    <items>
+                        <MenuItem fx:id="menuItemClient" mnemonicParsing="false" text="Client" />
+                        <MenuItem fx:id="menuItemAuthor" mnemonicParsing="false" text="Author" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Application">
+                    <items>
+                        <MenuItem fx:id="menuItemBackup" mnemonicParsing="false" text="Backup of database" />
+                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem fx:id="menuItemExit" mnemonicParsing="false" text="Exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</Pane>
