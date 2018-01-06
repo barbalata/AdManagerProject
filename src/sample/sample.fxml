@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.*?>
 <Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <MenuBar layoutY="2.0">
-        <menus>
-            <Menu mnemonicParsing="false" text="Ad">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#setMenuItemAdOnAction" text="Ad" />
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemRaportsOnClick" text="Raports" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Clients">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#setMenuItemClientOnClick" text="Client" />
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemAuthorOnClick" text="Author" />
-              </items>
-            </Menu>
-          <Menu mnemonicParsing="false" text="Application">
-            <items>
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemBackupOnClick" text="Backup of database" />
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemAboutOnClick" text="About" />
-              <MenuItem mnemonicParsing="false" onAction="#setMenuItemExitOnClick" text="Exit" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <Label layoutX="232.0" layoutY="249.0" text="main" />
-   </children>
+    <children>
+      <Label layoutX="24.0" layoutY="14.0" text="Welcome!">
+         <font>
+            <Font name="Centaur" size="96.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="100.0" layoutY="114.0" prefHeight="18.0" prefWidth="280.0" text="This is an aplication for ad managments." textAlignment="CENTER">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="239.0" prefHeight="16.0" prefWidth="268.0" text="Here you'll found the following things:">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="6.0" layoutY="436.0" text="Created by: Cătălin-Răzvan Barbălată | 01.2018 | 332 AA">
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+      <StackPane fx:id="paneTreeVeiw" layoutX="394.0" layoutY="158.0" prefHeight="290.0" prefWidth="288.0" />
+      <Label layoutX="69.0" layoutY="255.0" prefHeight="15.0" prefWidth="245.0" text="** To acces the window, press on the name of item **">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="270.0" prefHeight="17.0" prefWidth="223.0" text="** To see what contain an item, press on arrow. ** ">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+    </children>
 </Pane>
