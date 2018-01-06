@@ -8,30 +8,47 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <children>
-        <MenuBar layoutY="2.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Ad">
-                    <items>
-                        <MenuItem fx:id="menuItemAd" mnemonicParsing="false" onAction="#setMenuItemAdOnAction" text="Ad" />
-                        <MenuItem fx:id="menuItemRaports" mnemonicParsing="false" text="Raports" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Clients">
-                    <items>
-                        <MenuItem fx:id="menuItemClient" mnemonicParsing="false" text="Client" />
-                        <MenuItem fx:id="menuItemAuthor" mnemonicParsing="false" text="Author" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Application">
-                    <items>
-                        <MenuItem fx:id="menuItemBackup" mnemonicParsing="false" text="Backup of database" />
-                        <MenuItem mnemonicParsing="false" text="About" />
-                        <MenuItem fx:id="menuItemExit" mnemonicParsing="false" text="Exit" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-    </children>
+<Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="331.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FrmConfig">
+   <children>
+      <TitledPane collapsible="false" layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="302.0" text="Server">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="31.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="6.0" text="Server Name:" />
+                  <TextField fx:id="txtServerName" layoutX="87.0" layoutY="2.0" prefHeight="25.0" prefWidth="203.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane collapsible="false" layoutX="14.0" layoutY="90.0" prefHeight="150.0" prefWidth="302.0" text="The Database Connection Mode">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="rbWindowsAuthentication" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#setRbWindowsAuthenticationOnAction" text="Windows Authentication" />
+                  <RadioButton fx:id="rbSQLAuthentication" layoutX="7.0" layoutY="39.0" mnemonicParsing="false" onMouseClicked="#setRbSQLAuthenticationOnAction" text="SQL Server Authentication" />
+                  <Label layoutX="36.0" layoutY="62.0" text="User Name:" />
+                  <Label layoutX="36.0" layoutY="95.0" text="Password:" />
+                  <TextField fx:id="txtUserName" layoutX="103.0" layoutY="58.0" prefHeight="25.0" prefWidth="187.0" />
+                  <PasswordField fx:id="txtPassword" layoutX="103.0" layoutY="91.0" prefHeight="25.0" prefWidth="187.0" />
+               </children>
+            </Pane>
+         </content>
+      </TitledPane>
+      <TitledPane collapsible="false" layoutX="14.0" layoutY="249.0" prefHeight="67.0" prefWidth="302.0" text="Database">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="12.0" text="Database Name:" />
+                  <TextField fx:id="txtDatabaseName" layoutX="110.0" layoutY="8.0" prefHeight="25.0" prefWidth="178.0" />
+               </children>
+            </Pane>
+         </content>
+      </TitledPane>
+      <Button layoutX="214.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#testConnectionOnMouseClicked" text="Test Connection" />
+      <Button layoutX="18.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#setBtnOkOnClick" text="Ok" />
+      <Button fx:id="btnCancel" layoutX="57.0" layoutY="371.0" mnemonicParsing="false" onMouseClicked="#setBtnCancelOnClick" text="Cancel" />
+      <Label layoutX="16.0" layoutY="326.0" text="Status:" />
+      <Label fx:id="lblStatusValue" layoutX="57.0" layoutY="326.0" prefHeight="17.0" prefWidth="259.0" />
+      <Label fx:id="lblStatusValue2" layoutX="57.0" layoutY="343.0" prefHeight="17.0" prefWidth="259.0" />
+   </children>
 </Pane>
