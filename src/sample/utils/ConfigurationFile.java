@@ -1,4 +1,4 @@
-package utils;
+package sample.utils;
 
 import java.io.*;
 import java.util.Objects;

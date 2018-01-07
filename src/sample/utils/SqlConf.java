@@ -1,4 +1,4 @@
-package utils;
+package sample.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +16,7 @@ public class SqlConf {
     private static String connectionString = null;
 
     private static String SetConnectionURL() {
-        utils.ConfigurationFile configurationFile = new ConfigurationFile();
+        sample.utils.ConfigurationFile configurationFile = new ConfigurationFile();
         connectionString = "jdbc:sqlserver://" +
                 configurationFile.getServer() +
                 ":1433;" +
