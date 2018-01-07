@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FrmReports">
+    <children>
+        <MenuBar layoutY="2.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Window">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Ad">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#setMenuItemAdOnAction" text="Ad" />
+                                <MenuItem mnemonicParsing="false" onAction="#setMenuItemReportsOnClick" text="Reports" />
+                            </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#setMenuItemClientOnClick" text="Client" />
+                        <MenuItem mnemonicParsing="false" onAction="#setMenuItemAuthorOnClick" text="Author" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Application">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#setMenuItemBackupOnClick" text="Backup of database" />
+                        <MenuItem mnemonicParsing="false" onAction="#setMenuItemAboutOnClick" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#setMenuItemExitOnClick" text="Exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <TabPane layoutY="27.0" prefHeight="515.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Ad Reports">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AreaChart prefHeight="482.0" prefWidth="473.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </AreaChart>
+                        <Line endY="482.0" layoutX="470.0" stroke="#00000030" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Client Reports">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AreaChart prefHeight="482.0" prefWidth="473.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </AreaChart>
+                        <Line endY="482.0" layoutX="470.0" stroke="#00000030" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Author Reports">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AreaChart prefHeight="482.0" prefWidth="473.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </AreaChart>
+                        <Line endY="482.0" layoutX="470.0" stroke="#00000030" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Location Reports">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AreaChart prefHeight="482.0" prefWidth="473.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </AreaChart>
+                        <Line endY="482.0" layoutX="470.0" stroke="#00000030" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="156.0" layoutY="6.0" text="📌 Raports" />
+    </children>
+</Pane>
