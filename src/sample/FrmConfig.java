@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class FrmConfig {
 
     //region Declarations
@@ -76,7 +80,7 @@ public class FrmConfig {
         }else
         if (!testConnection()) {
             //Write the configuration file
-            utils.ConfigurationFile.SetConnectionProperties(
+            sample.utils.ConfigurationFile.SetConnectionProperties(
                     txtServerName.getText(),
                     rbWindowsAuthentication.isSelected(),
                     txtDatabaseName.getText(),
@@ -120,14 +124,14 @@ public class FrmConfig {
         System.out.println("\nPlease wait to test the connection.");
         if (!txtServerName.getText().isEmpty()) {
             if (rbWindowsAuthentication.isSelected()) {
-                String stringConnection = utils.SqlConf.SetConnectionURL(
+                String stringConnection = sample.utils.SqlConf.SetConnectionURL(
                         txtServerName.getText(),
                         rbWindowsAuthentication.isSelected());
                 System.out.println("String Connection for test: " + stringConnection);
 
-                error = !utils.SqlConf.TestConnection(stringConnection);
+                error = !sample.utils.SqlConf.TestConnection(stringConnection);
             } else {
-                String stringConnection = utils.SqlConf.SetConnectionURL(
+                String stringConnection = sample.utils.SqlConf.SetConnectionURL(
                         txtServerName.getText(),
                         txtDatabaseName.getText(),
                         rbWindowsAuthentication.isSelected(),
@@ -135,7 +139,7 @@ public class FrmConfig {
                         txtPassword.getText());
                 System.out.println("String Connection for test: " + stringConnection);
 
-                error = !utils.SqlConf.TestConnection(stringConnection);
+                error = !sample.utils.SqlConf.TestConnection(stringConnection);
             }
         } else {
             error = true;

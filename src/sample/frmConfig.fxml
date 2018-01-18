@@ -8,6 +8,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<!--/**-->
+<!--* Created by Catalin-Razvan BARBALATA on 17/01/2018.-->
+<!--*/-->
+
 <Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="331.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FrmConfig">
    <children>
       <TitledPane collapsible="false" layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="302.0" text="Server">
