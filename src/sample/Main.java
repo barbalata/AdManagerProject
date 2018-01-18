@@ -4,16 +4,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import utils.ConfigurationFile;
+import sample.utils.ConfigurationFile;
 
 import java.io.IOException;
+
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.setResizable(false);
         ConfigurationFile configurationFile = new ConfigurationFile();
-        if (configurationFile.getServer() == null || !utils.SqlConf.TestConnection()) {
+        if (configurationFile.getServer() == null || !sample.utils.SqlConf.TestConnection()) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("frmConfig.fxml"));
