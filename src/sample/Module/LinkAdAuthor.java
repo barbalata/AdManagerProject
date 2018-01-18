@@ -3,6 +3,10 @@ package sample.Module;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class LinkAdAuthor {
     //Declare Employees Table Columns
     private SimpleIntegerProperty AdID;

@@ -5,6 +5,10 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class City {
     //Declare Employees Table Columns
     private SimpleIntegerProperty CityID;

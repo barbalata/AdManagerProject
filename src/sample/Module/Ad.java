@@ -1,11 +1,14 @@
 package sample.Module;
 
 import javafx.beans.property.*;
+import javafx.scene.control.DatePicker;
+
 import java.sql.Date;
 import java.sql.Time;
+import java.util.GregorianCalendar;
 
 /**
- * Created by Catalin-Razvan BARBALATA on 27.02.2016.
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
  */
 
 public class Ad {
@@ -16,13 +19,15 @@ public class Ad {
     private SimpleIntegerProperty ContentID;
     private SimpleIntegerProperty AuthorID;
     private SimpleIntegerProperty PriceID;
-    private SimpleObjectProperty<Date> StartDate;
-    private SimpleObjectProperty<Date> StopDate;
+    private SimpleObjectProperty<java.util.Date> StartDate;
+    private SimpleObjectProperty<java.util.Date> StopDate;
     private SimpleStringProperty AdSize;
     private SimpleIntegerProperty AdClickNumber;
     private SimpleIntegerProperty AdViewNumber;
+    private SimpleStringProperty AdClientName;
+    private SimpleStringProperty AdAuthorName;
+    private SimpleFloatProperty AdTotalPrice;
 
-    //Constructor
     public Ad() {
         this.AdID = new SimpleIntegerProperty();
         this.LocationID = new SimpleIntegerProperty();
@@ -35,6 +40,9 @@ public class Ad {
         this.AdSize = new SimpleStringProperty();
         this.AdClickNumber = new SimpleIntegerProperty();
         this.AdViewNumber = new SimpleIntegerProperty();
+        this.AdClientName = new SimpleStringProperty();
+        this.AdAuthorName = new SimpleStringProperty();
+        this.AdTotalPrice = new SimpleFloatProperty();
     }
 
     //region AdID
@@ -122,29 +130,29 @@ public class Ad {
     //endregion
 
     //region StartDate
-    public Object getStartDate() {
+    public java.util.Date getStartDate() {
         return StartDate.get();
     }
 
-    public void setStartDate(Date startDate){
+    public void setStartDate(java.util.Date startDate){
         this.StartDate.set(startDate);
     }
 
-    public SimpleObjectProperty<Date> startDateProperty(){
+    public SimpleObjectProperty<java.util.Date> startDateProperty(){
         return StartDate;
     }
     //endregion
 
     //region StartDate
-    public Object getStopDate() {
-        return StopDate.get();
+    public java.util.Date getStopDate() {
+        return StopDate.getValue();
     }
 
-    public void setStopDate(Date stopDate){
+    public void setStopDate(java.util.Date stopDate){
         this.StopDate.set(stopDate);
     }
 
-    public SimpleObjectProperty<Date> stopDateProperty(){
+    public SimpleObjectProperty<java.util.Date> stopDateProperty(){
         return StopDate;
     }
     //endregion
@@ -188,6 +196,48 @@ public class Ad {
 
     public IntegerProperty adViewNumberProperty(){
         return AdViewNumber;
+    }
+    //endregion
+
+    //region AdSize
+    public String getAdClientName() {
+        return AdClientName.get();
+    }
+
+    public void setAdClientName(String clientName){
+        this.AdClientName.set(clientName);
+    }
+
+    public StringProperty adClientNameProperty(){
+        return AdClientName;
+    }
+    //endregion
+
+    //region AdSize
+    public String getAdAuthorName() {
+        return AdAuthorName.get();
+    }
+
+    public void setAdAuthorName(String authorName){
+        this.AdAuthorName.set(authorName);
+    }
+
+    public StringProperty adAuthorNameProperty(){
+        return AdAuthorName;
+    }
+    //endregion
+
+    //region AdTotalPrice
+    public Float getAdTotalPrice() {
+        return AdTotalPrice.get();
+    }
+
+    public void setAdTotalPrice(Float totalPrice){
+        this.AdTotalPrice.set(totalPrice);
+    }
+
+    public FloatProperty adtotalPriceProperty(){
+        return AdTotalPrice;
     }
     //endregion
 }

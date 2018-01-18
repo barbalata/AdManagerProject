@@ -4,6 +4,10 @@ import javafx.beans.property.*;
 
 import java.math.BigDecimal;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class Price {
     //Declare Employees Table Columns
     private SimpleIntegerProperty PriceID;

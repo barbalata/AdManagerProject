@@ -5,6 +5,10 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class Client {
     //Declare Employees Table Columns
     private SimpleIntegerProperty ClientID;
@@ -16,6 +20,8 @@ public class Client {
     private SimpleStringProperty ClientUniqueCode;
     private SimpleStringProperty ClientURL;
     private SimpleStringProperty ClientEmailAddress;
+    private SimpleStringProperty ClientCity;
+    private SimpleStringProperty ClientRegion;
 
 
     //Constructor
@@ -29,6 +35,9 @@ public class Client {
         this.ClientUniqueCode = new SimpleStringProperty();
         this.ClientURL = new SimpleStringProperty();
         this.ClientEmailAddress = new SimpleStringProperty();
+        this.ClientCity = new SimpleStringProperty();
+        this.ClientRegion = new SimpleStringProperty();
+
     }
 
     //region CityID
@@ -154,6 +163,34 @@ public class Client {
 
     public StringProperty clientEmailAddressProperty(){
         return ClientEmailAddress;
+    }
+    //endregion
+
+    //region ClientCity
+    public String getClientCity() {
+        return ClientCity.get();
+    }
+
+    public void setClientCity(String clientCity) {
+        this.ClientCity.set(clientCity);
+    }
+
+    public StringProperty clientCityProperty() {
+        return ClientCity;
+    }
+    //endregion
+
+    //region ClientRegion
+    public String getClientRegion() {
+        return ClientRegion.get();
+    }
+
+    public void setClientRegion(String clientRegion) {
+        this.ClientRegion.set(clientRegion);
+    }
+
+    public StringProperty clientRegionProperty() {
+        return ClientRegion;
     }
     //endregion
 }

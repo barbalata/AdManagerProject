@@ -5,13 +5,17 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class Author {
     //Declare Employees Table Columns
     private SimpleIntegerProperty AuthorID;
     private SimpleStringProperty AuthorFirstName;
     private SimpleStringProperty AuthorLastName;
     private SimpleStringProperty AuthorPhone;
-    private SimpleStringProperty AuthorEmailAdrress;
+    private SimpleStringProperty AuthorEmailAddress;
 
     //Constructor
     public Author(){
@@ -19,7 +23,7 @@ public class Author {
         this.AuthorFirstName = new SimpleStringProperty();
         this.AuthorLastName = new SimpleStringProperty();
         this.AuthorPhone = new SimpleStringProperty();
-        this.AuthorEmailAdrress = new SimpleStringProperty();
+        this.AuthorEmailAddress = new SimpleStringProperty();
     }
 
     //region AuthorID
@@ -79,16 +83,16 @@ public class Author {
     //endregion
 
     //region AuthorEmailAdrress
-    public String getAuthorEmailAdrress() {
-        return AuthorEmailAdrress.get();
+    public String getAuthorEmailAddress() {
+        return AuthorEmailAddress.get();
     }
 
-    public void setAuthorEmailAdrress(String authorEmailAdrress){
-        this.AuthorEmailAdrress.set(authorEmailAdrress);
+    public void setAuthorEmailAddress(String authorEmailAddress){
+        this.AuthorEmailAddress.set(authorEmailAddress);
     }
 
-    public StringProperty authorEmailAdrressProperty(){
-        return AuthorEmailAdrress;
+    public StringProperty authorEmailAddressProperty(){
+        return AuthorEmailAddress;
     }
     //endregion
 }
