@@ -8,6 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
+<!--/**-->
+<!--* Created by Catalin-Razvan BARBALATA on 17/01/2018.-->
+<!--*/-->
+
 <Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FrmClients">
     <children>
         <MenuBar layoutY="2.0">
@@ -42,29 +46,29 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <TableView fx:id="tableViewAds" layoutY="27.0" prefHeight="225.0" prefWidth="700.0">
+        <TableView fx:id="tableViewAds" editable="true" layoutY="27.0" onKeyReleased="#setDetailsItemOnSelect" onMouseClicked="#setDetailsItemOnSelect" prefHeight="225.0" prefWidth="700.0">
             <columns>
-                <TableColumn fx:id="tabelColClientName" prefWidth="213.0" text="Name" />
-                <TableColumn fx:id="tabelColClientType" prefWidth="88.0" text="Client Type:" />
+                <TableColumn fx:id="tableColClientName" prefWidth="213.0" text="Name" />
+                <TableColumn fx:id="tableColClientType" prefWidth="88.0" text="Client Type" />
                 <TableColumn minWidth="0.0" prefWidth="383.0" text="Address">
                     <columns>
-                      <TableColumn fx:id="tabelColClientStreet" prefWidth="104.0" text="Street" />
-                        <TableColumn fx:id="tabelColClientBuilding" prefWidth="84.0" text="Building Number" />
-                        <TableColumn fx:id="tabelColClientCity" prefWidth="134.0" text="City" />
-                  <TableColumn fx:id="tabelColClientRegion" prefWidth="75.0" text="Region" />
+                      <TableColumn fx:id="tableColClientStreet" prefWidth="104.0" text="Street" />
+                        <TableColumn fx:id="tableColClientBuilding" prefWidth="84.0" text="Building Number" />
+                        <TableColumn fx:id="tableColClientCity" prefWidth="134.0" text="City" />
+                  <TableColumn fx:id="tableColClientRegion" prefWidth="75.0" text="Region" />
                     </columns>
                 </TableColumn>
             </columns>
         </TableView>
         <TabPane layoutY="251.0" prefHeight="279.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab fx:id="tabDetails" text="Details">
+                <Tab fx:id="tabDetails" onSelectionChanged="#setTabDetails" text="Details">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TitledPane animated="false" layoutX="30.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="275.0" text="Client Infos">
+                                <TitledPane animated="false" layoutX="30.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="275.0" text="Client Infos">
                                     <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="185.0">
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="273.0">
                                             <children>
                                                 <Label layoutX="14.0" layoutY="20.0" text="Name:" />
                                                 <Label layoutX="12.0" layoutY="50.0" text="Client Type:" />
@@ -74,6 +78,8 @@
                                                 <TextField fx:id="txtClientUniqueCodeValue" layoutX="95.0" layoutY="76.0" prefHeight="25.0" prefWidth="170.0" />
                                                 <Label layoutX="12.0" layoutY="110.0" text="E-Mail Address:" />
                                                 <TextField fx:id="txtClientEmailValue" layoutX="95.0" layoutY="105.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <TextField fx:id="txtClientUrlValue" layoutX="95.0" layoutY="133.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <Label layoutX="12.0" layoutY="138.0" text="URL Address:" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -84,24 +90,40 @@
                                             <children>
                                                 <Label layoutX="15.0" layoutY="20.0" text="Street Name:" />
                                                 <Label layoutX="15.0" layoutY="50.0" text="Building Number:" />
-                                                <Label layoutX="15.0" layoutY="80.0" text="City Name:" />
-                                                <Label layoutX="15.0" layoutY="110.0" text="Region Name:" />
+                                                <Label layoutX="15.0" layoutY="110.0" text="City Name:" />
+                                                <Label layoutX="15.0" layoutY="79.0" text="Region Name:" />
                                                 <TextField fx:id="txtClientStreetValue" layoutX="115.0" layoutY="15.0" prefHeight="25.0" prefWidth="170.0" />
-                                                <TextField fx:id="txtClientRegionValue" layoutX="115.0" layoutY="105.0" prefWidth="170.0" />
                                                 <TextField fx:id="txtClientBuldingValue" layoutX="115.0" layoutY="45.0" prefWidth="170.0" />
-                                                <TextField fx:id="txtClientCityValue" layoutX="115.0" layoutY="75.0" prefWidth="170.0" />
+                                                <TextField fx:id="txtClientCityValue" layoutX="115.0" layoutY="105.0" prefWidth="170.0" />
+                                    <ComboBox fx:id="cbClientRegionValue" layoutX="115.0" layoutY="74.0" onMouseClicked="#setCBClientRegionValueOnClick" prefHeight="25.0" prefWidth="169.0" />
+                                                <TextField fx:id="txtClientRegionValue" layoutX="115.0" layoutY="74.0" prefWidth="170.0" />
+                                    <ComboBox fx:id="cbClientCityValue" layoutX="115.0" layoutY="105.0" onMouseClicked="#setCBClientCityValueOnClick" prefHeight="25.0" prefWidth="169.0" />
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <Button fx:id="btnEdit" layoutX="14.0" layoutY="211.0" mnemonicParsing="false" text="Add" />
-                                <Button fx:id="btnSave" layoutX="56.0" layoutY="211.0" mnemonicParsing="false" text="Edit" />
-                                <Button fx:id="btnSave1" layoutX="151.0" layoutY="211.0" mnemonicParsing="false" text="Save" />
-                                <Button fx:id="btnEdit1" layoutX="97.0" layoutY="211.0" mnemonicParsing="false" text="Delete" />
+                                <Button fx:id="btnSave" layoutX="645.0" layoutY="212.0" mnemonicParsing="false" onMouseClicked="#setBtnSaveOnClick" text="Save" />
+                        <MenuButton fx:id="btnAdd" layoutX="14.0" layoutY="211.0" mnemonicParsing="false" text="Add">
+                           <items>
+                              <MenuItem fx:id="btnAddLocation" mnemonicParsing="false" onAction="#setBtnAddCityOnClick" text="City" />
+                              <MenuItem fx:id="btnAddRegion" mnemonicParsing="false" onAction="#setBtnAddRegionOnClick" text="Region" />
+                              <MenuItem fx:id="btnAddClient" mnemonicParsing="false" onAction="#setBtnAddClientsOnClick" text="Client" />
+                              <MenuItem fx:id="btnAddAll" mnemonicParsing="false" onAction="#setBtnAddAllOnClick" text="All" />
+                           </items>
+                        </MenuButton>
+                        <MenuButton fx:id="btnDelete" layoutX="111.0" layoutY="211.0" mnemonicParsing="false" text="Delete">
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#setBtnDeleteRegionOnClick" text="Region" />
+                            <MenuItem fx:id="btnDeleteCity" mnemonicParsing="false" onAction="#setBtnDeleteCityOnClick" text="City" />
+                            <MenuItem fx:id="btnDeleteClient" mnemonicParsing="false" onAction="#setBtnDeleteClientsOnClick" text="Client" />
+                          </items>
+                        </MenuButton>
+                        <Button fx:id="btnCancel" layoutX="590.0" layoutY="212.0" mnemonicParsing="false" onMouseClicked="#setBtnCancelOnClick" text="Cancel" />
+                        <Button fx:id="btnEdit" layoutX="71.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#setBtnEditAllOnClick" text="Edit" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
-                <Tab fx:id="tabSearch" text="Search">
+                <Tab fx:id="tabSearch" onSelectionChanged="#setTabSearch" text="Search">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
@@ -126,6 +148,8 @@
                                     <Label layoutX="12.0" layoutY="50.0" text="Client Type:" />
                                     <TextField fx:id="txtClientNameSearch" layoutX="95.0" layoutY="15.0" prefHeight="25.0" prefWidth="170.0" />
                                     <TextField fx:id="txtClientTypeSearch" layoutX="95.0" layoutY="46.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <TextField fx:id="txtClientUniqueCodeSearch" layoutX="95.0" layoutY="78.0" prefHeight="25.0" prefWidth="170.0" />
+                                    <Label layoutX="12.0" layoutY="82.0" text="Unique Code:" />
                                  </children>
                               </AnchorPane>
                            </content>
