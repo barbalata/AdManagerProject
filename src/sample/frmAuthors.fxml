@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.media.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<!--/**-->
+<!--* Created by Catalin-Razvan BARBALATA on 17/01/2018.-->
+<!--*/-->
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Font?>
 <Pane fx:id="pnExecut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FrmAuthors">
     <children>
         <MenuBar layoutY="2.0">
             <menus>
             <Menu mnemonicParsing="false" text="File">
               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemAddOnAction" text="Add Item" />
-                <MenuItem mnemonicParsing="false" onAction="#setMenuItemEditOnAction" text="Edit Item" />
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemDeleteOnAction" text="Delete Item" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#setMenuItemSearchOnAction" text="Search" />
+                  <MenuItem mnemonicParsing="false" onAction="#setBtnAdOnAction" text="Add Item" />
+                <MenuItem mnemonicParsing="false" onAction="#setBtnEditOnClick" text="Edit Item" />
+                  <MenuItem mnemonicParsing="false" onAction="#setBtnDeleteOnClick" text="Delete Item" />
+                  <SeparatorMenuItem mnemonicParsing="false" onAction="#setSearchOnClick" />
+                  <MenuItem mnemonicParsing="false" onAction="#setSearchOnClick" text="Search" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Window">
@@ -42,7 +42,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <TableView fx:id="tableViewAds" layoutY="27.0" prefHeight="225.0" prefWidth="700.0">
+        <TableView fx:id="tableViewAds" layoutY="27.0" onKeyReleased="#setDetailsItemOnSelect" onMouseClicked="#setDetailsItemOnSelect" prefHeight="225.0" prefWidth="700.0">
             <columns>
                 <TableColumn fx:id="tableColFirstName" prefWidth="103.0" text="First Name" />
                 <TableColumn fx:id="tableColLastName" prefWidth="184.0" text="Last Name" />
@@ -50,24 +50,27 @@
                 <TableColumn fx:id="tableColEmail" prefWidth="158.0" text="E-Mail Address" />
             </columns>
         </TableView>
-        <TabPane layoutY="251.0" prefHeight="279.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane fx:id="tabPane" layoutY="251.0" prefHeight="279.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab fx:id="tabDetails" text="Details">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Button fx:id="btnEdit" layoutX="56.0" layoutY="211.0" mnemonicParsing="false" text="Edit" />
-                                <Button fx:id="btnSave" layoutX="151.0" layoutY="211.0" mnemonicParsing="false" text="Save" />
+                        <TextField fx:id="txtFirstNameValue" layoutX="130.0" layoutY="25.0" prefHeight="25.0" prefWidth="173.0" />
+                        <TextField fx:id="txtLastNameValue" layoutX="130.0" layoutY="55.0" prefHeight="25.0" prefWidth="173.0" />
+                        <TextField fx:id="txtAuthorPrefixNumber" layoutX="130.0" layoutY="85.0" prefHeight="25.0" prefWidth="63.0" />
+                        <ComboBox fx:id="cbAuthorPrefixNumber" layoutX="130.0" layoutY="85.0" prefHeight="25.0" prefWidth="64.0" />
+                        <TextField fx:id="txtPhoneValue" layoutX="204.0" layoutY="85.0" prefHeight="25.0" prefWidth="100.0" />
+                        <TextField fx:id="txtEmailValue" layoutX="130.0" layoutY="115.0" prefHeight="25.0" prefWidth="173.0" />
+                        <Button fx:id="btnAdd" layoutX="14.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#setBtnAdOnAction" text="Add" />
+                                <Button fx:id="btnEdit" layoutX="56.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#setBtnEditOnClick" text="Edit" />
+                        <Button fx:id="btnDelete" layoutX="97.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#setBtnDeleteOnClick" text="Delete" />
+                        <Button fx:id="btnCancel" layoutX="590.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#setBtnCancelOnClick" text="Cancel" />
+                                <Button fx:id="btnSave" layoutX="645.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#setBtnSaveOnClick" text="Save" />
                         <Label layoutX="30.0" layoutY="30.0" text="First Name:" />
                         <Label layoutX="30.0" layoutY="60.0" text="Last Name:" />
                         <Label layoutX="30.0" layoutY="90.0" text="Phone Number:" />
                         <Label layoutX="30.0" layoutY="120.0" text="E-mail Address:" />
-                        <TextField fx:id="txtFirstNameValue" layoutX="130.0" layoutY="25.0" />
-                        <TextField fx:id="txtLastNameValue" layoutX="130.0" layoutY="55.0" />
-                        <TextField fx:id="txtPhoneValue" layoutX="130.0" layoutY="85.0" />
-                        <TextField fx:id="txtEmailValue" layoutX="130.0" layoutY="115.0" />
-                        <Button fx:id="btnDelete" layoutX="97.0" layoutY="211.0" mnemonicParsing="false" text="Delete" />
-                        <Button fx:id="btnAdd" layoutX="14.0" layoutY="211.0" mnemonicParsing="false" text="Add" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
@@ -75,7 +78,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Button fx:id="btnSearch" layoutX="244.0" layoutY="92.0" mnemonicParsing="false" text="Search" />
+                                <Button fx:id="btnSearch" layoutX="244.0" layoutY="92.0" mnemonicParsing="false" onMouseClicked="#setSearchOnClick" text="Search" />
                                 <Label layoutX="30.0" layoutY="35.0" text="First Name:" />
                                 <Label layoutX="30.0" layoutY="65.0" text="Last Name: " />
                                 <TextField fx:id="txtFirstNameSearch" layoutX="120.0" layoutY="30.0" prefHeight="25.0" prefWidth="176.0" />
