@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.Objects;
 import java.util.Properties;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class ConfigurationFile {
     private String User = null;
     private String Password = null;

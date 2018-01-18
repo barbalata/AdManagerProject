@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Created by Catalin-Razvan BARBALATA on 17/01/2018.
+ */
+
 public class SqlConf {
     //Declare JDBC Driver
     private static final String JDBC_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -61,7 +65,7 @@ public class SqlConf {
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             DriverManager.getConnection(ConnectionString);
-
+            System.out.println("Successfully connected to database.");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             return false;
@@ -75,15 +79,16 @@ public class SqlConf {
         try {
             Class.forName(JDBC_DRIVER);
         } catch (ClassNotFoundException e) {
-            System.out.println("Where is your Oracle JDBC Driver?");
+            System.out.println("Where is your SQL Server JDBC Driver?");
             e.printStackTrace();
             throw e;
         }
 
-        System.out.println("Oracle JDBC Driver Registered!");
+        System.out.println("SQL Server JDBC Driver Registered!");
 
         //Establish the Oracle Connection using Connection String
         try {
+            System.out.println(connectionString);
             connection = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console" + e);
@@ -101,5 +106,9 @@ public class SqlConf {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    public static Connection getConnection() {
+        return connection;
     }
 }
