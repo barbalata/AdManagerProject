@@ -97,7 +97,7 @@ public class AuthorsDAO {
         System.out.println("Update - DONE!");
     }
 
-    public static ArrayList<Author> getAuthor(String firstName, String lastName) {
+    public static ArrayList<Author> getAuthor(Integer authorID, String firstName, String lastName) {
         CallableStatement cStmt = null;
         ResultSet rs = null;
         ArrayList<Author> authorVar = new ArrayList<>();
@@ -107,7 +107,7 @@ public class AuthorsDAO {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
 
-            cStmt.setInt("author_id", -1);
+            cStmt.setInt("author_id", authorID);
             cStmt.setString("first_name", firstName);
             cStmt.setString("last_name", lastName);
 

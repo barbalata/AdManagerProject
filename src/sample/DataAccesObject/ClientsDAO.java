@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class ClientsDAO {
-    public static ArrayList<Client> ClientGET(String clientName, String clientType, String clientUniqueCode, String cityName, String regionName) {
+    public static ArrayList<Client> ClientGET(Integer clientID, String clientName, String clientType, String clientUniqueCode, String cityName, String regionName) {
         CallableStatement cStmt = null;
         ResultSet rs = null;
         ArrayList<Client> clients = new ArrayList<>();
@@ -21,7 +21,7 @@ public class ClientsDAO {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
 
-            cStmt.setInt("client_id", -1);
+            cStmt.setInt("client_id", clientID);
             cStmt.setString("name", clientName);
             cStmt.setString("type", clientType);
             cStmt.setString("cnp_cui", clientUniqueCode);

@@ -275,7 +275,7 @@ public class FrmAuthors {
         tableColEmail.setCellValueFactory(new PropertyValueFactory<>("AuthorEmailAddress"));
 
         //Get values from database
-        ArrayList<Author> authors = AuthorsDAO.getAuthor(firstName, lastName);
+        ArrayList<Author> authors = AuthorsDAO.getAuthor(-1, firstName, lastName);
 
         //Populate TableView from database
         tableViewAds.getItems().setAll(authors);

@@ -158,6 +158,11 @@ public class FrmClients {
     }
 
     @FXML
+    void setBtnSearchOnClick(){
+        loadTableView(txtClientNameSearch.getText(), txtClientTypeSearch.getText(), txtClientUniqueCodeSearch.getText(), txtClientCitySearch.getText(), txtClientRegionSearch.getText());
+    }
+
+    @FXML
     void setTabSearch() {
         this.disableDetailsFields(true);
         this.disableSelectiveButtons(false);
@@ -464,7 +469,7 @@ public class FrmClients {
         tableColClientStreet.setCellValueFactory(new PropertyValueFactory<>("ClientStreet"));
 
         //Get values from database
-        ArrayList<Client> clients = ClientsDAO.ClientGET(clientName, clientType, clientUniqueCode, cityName, regionName);
+        ArrayList<Client> clients = ClientsDAO.ClientGET(-1, clientName, clientType, clientUniqueCode, cityName, regionName);
 
         //Populate TableView from database
         tableViewAds.getItems().setAll(clients);
