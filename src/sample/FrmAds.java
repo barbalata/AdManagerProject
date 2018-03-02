@@ -246,7 +246,7 @@ public class FrmAds {
                 System.out.println(observableValue);
                 System.out.println(lastValue);
                 System.out.println(currentValue);
-                loadLocationDetailsValue(tableViewAds.getSelectionModel().getSelectedItem(), LocationDAO.LocationSEL(currentValue).get(0));
+                loadLocationDetailsValue(tableViewAds.getItems().size() != 0 ? tableViewAds.getSelectionModel().getSelectedItem() : new Ad(), LocationDAO.LocationSEL(currentValue).get(0));
             }
         });
 
@@ -266,7 +266,7 @@ public class FrmAds {
                 System.out.println(observableValue);
                 System.out.println(lastValue);
                 System.out.println(currentValue);
-                loadPriceDetailsValue(tableViewAds.getSelectionModel().getSelectedItem(), PriceDAO.PriceSEL(currentValue).get(0));
+                loadPriceDetailsValue(tableViewAds.getItems().size() != 0 ? tableViewAds.getSelectionModel().getSelectedItem() : new Ad(), PriceDAO.PriceSEL(currentValue).get(0));
             }
         });
 
@@ -298,16 +298,17 @@ public class FrmAds {
     }
 
     @FXML
-    void setTabSearch(){
+    void setTabSearch() {
         dpSearchStartData.setValue(LocalDate.now());
         dpSearchStopDate.setValue(LocalDate.now());
     }
+
     @FXML
-    void setBtnSearchOnClick(){
+    void setBtnSearchOnClick() {
         GregorianCalendar gregorianCalendar = new GregorianCalendar(dpSearchStartData.getValue().getYear(), dpSearchStartData.getValue().getMonthValue(), dpSearchStartData.getValue().getDayOfMonth());
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar(dpSearchStopDate.getValue().getYear(), dpSearchStopDate.getValue().getMonthValue(), dpSearchStopDate.getValue().getDayOfMonth());
 
-        this.loadTableView(Integer.valueOf(txtSearchAdCode.getText()), txtSearchClientName.getText(), txtSearchAuthorName.getText(), gregorianCalendar,gregorianCalendar1);
+        this.loadTableView(Integer.valueOf(txtSearchAdCode.getText()), txtSearchClientName.getText(), txtSearchAuthorName.getText(), gregorianCalendar, gregorianCalendar1);
     }
 
     //region Main Button -> Add/Edit/Delete
@@ -345,7 +346,7 @@ public class FrmAds {
         this.cleanDetailsFields();
         this.selectOptionAddEdit(false, false, true, false);
 
-        if(isEdit){
+        if (isEdit) {
             this.comboBoxLocation.setDisable(false);
         }
     }
@@ -373,7 +374,7 @@ public class FrmAds {
         this.tableViewAds.setDisable(true);
         this.selectOptionAddEdit(false, true, false, false);
 
-        if(isEdit){
+        if (isEdit) {
             this.comboBoxContent.setDisable(false);
         }
     }
@@ -389,7 +390,7 @@ public class FrmAds {
         this.tableViewAds.setDisable(true);
         this.selectOptionAddEdit(false, false, false, true);
 
-        if(isEdit){
+        if (isEdit) {
             this.comboBoxPrice.setDisable(false);
         }
     }
@@ -559,61 +560,51 @@ public class FrmAds {
     //region Load ComboBoxes
     @FXML
     void loadComboBoxLocationValues() {
-        if (tableViewAds.getItems().size() != 0) {
-            ArrayList<Location> locations = LocationDAO.LocationSEL(-1);
-            comboBoxPrice.getItems().clear();
-            if (!locations.isEmpty())
-                for (Location location : locations) {
-                    comboBoxLocation.getItems().addAll(location.getLocationID());
-                }
-
-        }
+        ArrayList<Location> locations = LocationDAO.LocationSEL(-1);
+        comboBoxLocation.getItems().clear();
+        if (!locations.isEmpty())
+            for (Location location : locations) {
+                comboBoxLocation.getItems().addAll(location.getLocationID());
+            }
     }
 
     @FXML
     void loadComboBoxPriceValues() {
-        if (tableViewAds.getItems().size() != 0) {
-            ArrayList<Price> currentPriceItem = PriceDAO.PriceSEL(-1);
-            for (Price price : currentPriceItem) {
-                comboBoxPrice.getItems().addAll(price.getPriceID());
-            }
+        ArrayList<Price> currentPriceItem = PriceDAO.PriceSEL(-1);
+        comboBoxPrice.getItems().clear();
+        for (Price price : currentPriceItem) {
+            comboBoxPrice.getItems().addAll(price.getPriceID());
         }
     }
 
     @FXML
     void loadComboBoxContentValues() {
-        if (tableViewAds.getItems().size() != 0) {
-            ArrayList<Content> currentContentItem = ContentDAO.ContentSEL(-1);
-            for (Content content : currentContentItem) {
-                comboBoxContent.getItems().addAll(content.getContentID());
-            }
+        ArrayList<Content> currentContentItem = ContentDAO.ContentSEL(-1);
+        comboBoxContent.getItems().clear();
+        for (Content content : currentContentItem) {
+            comboBoxContent.getItems().addAll(content.getContentID());
         }
     }
 
     @FXML
     void loadComboBoxClientValues() {
-        if (tableViewAds.getItems().size() != 0) {
-            ArrayList<Client> clients = ClientsDAO.ClientGET(-1, "", "", "", "", "");
-            if (!clients.isEmpty())
-                for (Client client : clients) {
-                    comboBoxClient.getItems().addAll(client.getClientID());
-
-                }
-
-        }
+        comboBoxClient.getItems().clear();
+        ArrayList<Client> clients = ClientsDAO.ClientGET(-1, "", "", "", "", "");
+        if (!clients.isEmpty())
+            for (Client client : clients) {
+                comboBoxClient.getItems().addAll(client.getClientID());
+            }
     }
 
     @FXML
     void loadComboBoxAuthorValues() {
-        if (tableViewAds.getItems().size() != 0) {
-            ArrayList<Author> authors = AuthorsDAO.getAuthor(-1, "", "");
-            if (!authors.isEmpty())
-                for (Author author : authors) {
-                    comboBoxAuthor.getItems().addAll(author.getAuthorID());
-                    comboBoxAuthor.setAccessibleText(author.getAuthorFirstName() + " " + author.getAuthorLastName());
-                }
-
-        }
+        comboBoxAuthor.getItems().clear();
+        ArrayList<Author> authors = AuthorsDAO.getAuthor(-1, "", "");
+        if (!authors.isEmpty())
+            for (Author author : authors) {
+                comboBoxAuthor.getItems().addAll(author.getAuthorID());
+                comboBoxAuthor.setAccessibleText(author.getAuthorFirstName() + " " + author.getAuthorLastName());
+            }
     }
 
 //endregion

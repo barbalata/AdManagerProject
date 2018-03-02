@@ -141,6 +141,7 @@ public class AdsDAO {
             cStmt.setInt("price_id", ad.getPriceID());
             cStmt.setInt("ad_number_click",ad.getAdClickNumber());
             cStmt.setInt("ad_number_view", ad.getAdViewNumber());
+            cStmt.setString("ad_size", ad.getAdSize());
 
             boolean results = cStmt.execute();
             int rowsAffected = 0;
